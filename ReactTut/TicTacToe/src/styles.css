@@ -88,8 +88,3 @@ body {
 .game-info {
   margin-left: 20px;
 }
-
-main {
-  display: flex;
-  flex-direction: column;
-}
