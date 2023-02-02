@@ -5,7 +5,6 @@ const UserDisplay = (props) => {
 
     return (
         <div>
-            <h1>Current User Information</h1>
             <p> {username}</p>
             <p> {email}</p>
         </div>

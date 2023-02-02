@@ -31,6 +31,7 @@ const UserForm = (props) => {
                 </div>
                 <input type='submit' />
             </form>
+            <h2>Current User Information</h2>
             <UserDisplay username={username} email={email} />
         </div>
     )
