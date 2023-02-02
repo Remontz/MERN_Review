@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <HelloDojo value={'Alyssa'} />
+      <button onClick={() => alert('This button has been clicked')}>Click Me</button>
       <PersonCard
         firstName={'Jane'}
         lastName={'Doe'}
