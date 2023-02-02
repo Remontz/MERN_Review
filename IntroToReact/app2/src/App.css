@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+#formErrorMsg {
+  font-size: xx-small;
+  color: red;
+}
+#formValidMsg {
+  font-size: xx-small;
+  color: green;
+}
