@@ -37,7 +37,8 @@ const UserForm = (props) => {
                     <label>Password: </label>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <input type='submit' />
+                {((username !== '') && (email !== '') && (password !== '')) ? <input type='submit' /> : <input type='submit' disabled />}
+
             </form>
             <h2>Current User Information</h2>
             <UserDisplay username={username} email={email} />
