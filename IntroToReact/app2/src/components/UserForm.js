@@ -3,19 +3,27 @@ import UserDisplay from './UserDisplay'
 
 const UserForm = (props) => {
     const [username, setUsername] = useState("")
+    const [clearedName, setClearedName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [isSubmitted, setIsSubmitted] = useState(false)
 
     const createUser = (e) => {
         e.preventDefault()
         const newUser = { username, email, password }
         console.log("Welcome", newUser)
+        setClearedName(username)
         setUsername("")
         setEmail("")
         setPassword("")
+
+        setIsSubmitted(true)
     }
+
+    const welcomeMsg = (isSubmitted) ? `Thanks ${clearedName}!` : `Welcome to User Registration`
     return (
         <div>
+            <h3>{welcomeMsg}</h3>
             <form action="" onSubmit={createUser}>
                 <div>
                     <label>Username: </label>
