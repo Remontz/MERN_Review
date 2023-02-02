@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 const PersonCard = (props) => {
     const { firstName, lastName, hairColor } = props
     const [currentAge, setCurrentAge] = useState(props.age)
+
     const fullName = props.firstName + ' ' + props.lastName
     const isBlack = (hairColor === 'Black') ? 'white' : 'black'
 
