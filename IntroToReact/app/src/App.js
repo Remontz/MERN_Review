@@ -52,8 +52,8 @@ function App() {
               age={45}
               hairColor={'Black'}
             />
-            <button onClick={handleJaneDoe}>Jane Doe</button>
-          </span>) : <button onClick={handleJaneDoe}>Jane Doe</button>}
+            <button onClick={handleJaneDoe}>Close Jane Doe's Card</button>
+          </span>) : <button onClick={handleJaneDoe}>Jane Doe's Card</button>}
 
         {showJohnSmith ?
           (<span>
@@ -63,8 +63,8 @@ function App() {
               age={88}
               hairColor={'Brown'}
             />
-            <button onClick={handleJohnSmith}>John Smith</button>
-          </span>) : <button onClick={handleJohnSmith}>John Smith</button>}
+            <button onClick={handleJohnSmith}>Close John Smith's Card</button>
+          </span>) : <button onClick={handleJohnSmith}>John Smith's Card</button>}
 
         {showMillardFillmore ?
           (<span>
@@ -74,8 +74,8 @@ function App() {
               age={50}
               hairColor={'Brown'}
             />
-            <button onClick={handleMillardFillmore}>Jane Doe</button>
-          </span>) : <button onClick={handleMillardFillmore}>Millard Fillmore</button>}
+            <button onClick={handleMillardFillmore}>Close Millard Fillmore's Card</button>
+          </span>) : <button onClick={handleMillardFillmore}>Millard Fillmore's Card</button>}
 
         {showMariaSmith ?
           (<span>
@@ -85,10 +85,9 @@ function App() {
               age={62}
               hairColor={'Brown'}
             />
-            <button onClick={handleMariaSmith}>Jane Doe</button>
-          </span>) : <button onClick={handleMariaSmith}>Maria Smith</button>}
+            <button onClick={handleMariaSmith}>Close Maria Smith's Card</button>
+          </span>) : <button onClick={handleMariaSmith}>Maria Smith's Card</button>}
       </div>
-
 
     </div>
   );
