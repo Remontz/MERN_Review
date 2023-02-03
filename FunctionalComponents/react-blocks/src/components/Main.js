@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Main = () => {
+const Main = (props) => {
     return (
-        <div>Main</div>
+        <div className='Main'>
+            {props.children}
+        </div>
     )
 }
 

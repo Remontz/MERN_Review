@@ -9,7 +9,17 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Navigation />
+      <div className='App-body'>
+        <Navigation />
+        <Main>
+          <div className='App-sub'>
+            <SubContents />
+            <SubContents />
+            <SubContents />
+          </div>
+          <Advertisement />
+        </Main>
+      </div>
     </div>
   );
 }
