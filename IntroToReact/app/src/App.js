@@ -5,8 +5,12 @@ import HelloDojo from './components/HelloDojo';
 import Nav from './components/Nav';
 import PersonCard from './components/PersonCard';
 import UserForm from './components/UserForm';
+import BoxForm from './components/BoxForm';
+import BoxDisplay from './components/BoxDisplay';
 
 function App() {
+  const [boxes, setBoxes] = useState([])
+
   const [showDojo, setShowDojo] = useState(false)
   const handleHelloDojo = () => {
     setShowDojo(!showDojo)
@@ -34,6 +38,10 @@ function App() {
     setShowMariaSmith(!showMariaSmith)
   }
 
+  const [showPersonCards, setShowPersonCards] = useState(false)
+  const handlePersonCards = () => {
+    setShowPersonCards(!showPersonCards)
+  }
   return (
     <div className="App">
       <Nav />
@@ -42,7 +50,9 @@ function App() {
       <button onClick={handleHelloDojo}>Hello Dojo</button>
       {showDojo ? <HelloDojo value={'Alyssa'} /> : null}
       <button onClick={() => alert('This button has been clicked')}>Click Me</button>
-      <div>
+
+      <button onClick={handlePersonCards}>Person Cards</button>
+      {showPersonCards ? (<div>
         <h3>Person Cards</h3>
         {showJaneDoe ?
           (<span>
@@ -87,7 +97,13 @@ function App() {
             />
             <button onClick={handleMariaSmith}>Close Maria Smith's Card</button>
           </span>) : <button onClick={handleMariaSmith}>Maria Smith's Card</button>}
+      </div>) : null}
+      <div className='boxes'>
+        <BoxForm boxes={boxes} setBoxes={setBoxes} />
+        <BoxDisplay boxes={boxes} />
       </div>
+
+
 
     </div>
   );
