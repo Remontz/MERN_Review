@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import TabsDisplay from './TabsDisplay'
 
 const Tabs = (props) => {
     const { arrayLength } = props
@@ -8,27 +9,30 @@ const Tabs = (props) => {
     }
 
     const [tabsArray, setTabsArray] = useState(blankArray)
-    const [currentTabContent, setCurrentTabContent] = useState(tabsArray[0].content)
-
-    const handleShow = (index) => {
-        // setI(index)
-        console.log(tabsArray[index].content)
+    const [i, setI] = useState(0)
+    const [currentContent, setCurrentContent] = useState()
+    console.log(tabsArray[i])
+    const tabClicked = (index) => {
+        setI(index)
+        setCurrentContent(tabsArray[i].content)
     }
+
 
     return (
         <div className='tabs-box'>
-            Tabs
-            <ul className='tab-btns'>
-                {tabsArray.map((tab, index) => (
+            {
+                <ul>
                     <li>
-                        <button onClick={handleShow(index)}>{tab.label}</button>
+                        {tabsArray.map((tab, index) => (
+                            <button onClick={() => tabClicked(index)}>{tab.label}</button>
+                        ))}
                     </li>
-                ))}
-            </ul>
-            <div className='tab-content'>
-                {/* {tabsArray.content} */}
-            </div>
+                </ul>
 
+            }
+            <p>
+                <TabsDisplay currentTab={currentContent} />
+            </p>
         </div>
     )
 
