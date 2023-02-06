@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import TabsDisplay from './TabsDisplay'
 
 const Tabs = (props) => {
     const { arrayLength } = props
@@ -9,29 +8,44 @@ const Tabs = (props) => {
     }
 
     const [tabsArray, setTabsArray] = useState(blankArray)
+
+    const contentArray = tabsArray.map(tab => tab.content)
+
     const [i, setI] = useState(0)
-    const [currentContent, setCurrentContent] = useState()
-    console.log(tabsArray[i])
+    const [isClicked, setIsClicked] = useState(false)
+
     const tabClicked = (index) => {
         setI(index)
-        setCurrentContent(tabsArray[i].content)
+        setIsClicked(!isClicked)
+    }
+
+    const [mousedOver, setMousedOver] = useState(false)
+    const handleMouseOver = (e) => {
+        setMousedOver(true)
+    }
+    const handleMouseLeave = (e) => {
+        setMousedOver(false)
     }
 
 
     return (
         <div className='tabs-box'>
-            {
-                <ul>
-                    <li>
-                        {tabsArray.map((tab, index) => (
-                            <button onClick={() => tabClicked(index)}>{tab.label}</button>
-                        ))}
-                    </li>
-                </ul>
-
+            {<div className='tabs-btns'>
+                {tabsArray.map((tab, index) => (
+                    <button
+                        id={mousedOver ? 'dark-btn' : 'btn'}
+                        //To fix maybe add button-id as an attribute to the object.
+                        onClick={() => tabClicked(index)}
+                        onMouseOver={(e) => handleMouseOver(e)}
+                        onMouseLeave={(e) => handleMouseLeave(e)}
+                    >
+                        {tab.label}
+                    </button>
+                ))}
+            </div>
             }
             <p>
-                <TabsDisplay currentTab={currentContent} />
+                {isClicked ? contentArray[i] : contentArray[i]}
             </p>
         </div>
     )

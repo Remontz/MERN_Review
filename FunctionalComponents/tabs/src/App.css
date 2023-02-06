@@ -39,9 +39,19 @@
 
 .tabs-box {
   outline: 1px solid orange;
+  margin: 20px 10px;
 }
 .tab-btns {
   list-style-type: none;
   display: flex;
   flex-direction: row;
+}
+
+#dark-btn {
+  background-color: black;
+  color: white;
+}
+
+#btn {
+  background-color: white;
 }
