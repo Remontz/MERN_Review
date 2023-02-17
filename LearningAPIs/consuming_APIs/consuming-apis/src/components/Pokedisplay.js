@@ -1,22 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Pokedisplay = () => {
-    const [currentName, setCurrentName] = useState('')
-    const [display, setDisplay] = useState('')
+    const [pokemon, setPokemon] = useState([])
 
-    const changePokemon = (currentName) => {
-        setDisplay(currentName)
-    }
+    useEffect(() => {
+        fetch('https://pokeapi.co/api/v2/pokemon/?limit=807')
+            .then(response => {
+                return response.json()
+            })
+            .then(response => {
+                setPokemon(response.results)
+                console.log(response.results)
+            })
+            .catch((err) => { console.log(err) })
+    }, [])
+
     return (
         <div>
-            {/* Form that accepts pkemon name on submit performs fetch*/}
-            <form onSubmit={changePokemon({ currentName })}>
-                <input type='text' onChange={(e) => setCurrentName(e.target.value)} value={currentName} />
-                <button type='submit'>Search Pokemon</button>
-            </form>
-            <div>
-                {display}
-            </div>
+            <ul>
+                {pokemon.map((poke, index) => {
+                    return (<li>{poke.name}</li>)
+                })}
+            </ul>
         </div>
     )
 }
