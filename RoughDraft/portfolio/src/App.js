@@ -1,8 +1,15 @@
 import './App.css';
+import Header from './components/Header';
+import Contact from './components/Contact';
+import AboutMe from './components/AboutMe';
 
 function App() {
   return (
     <div className="App">
+      <Header>
+        <Contact />
+      </Header>
+      <AboutMe />
       {/* 
         //Header
           //Nav Links

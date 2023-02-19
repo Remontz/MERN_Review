@@ -15,8 +15,12 @@ const Pokedisplay = () => {
             .catch((err) => { console.log(err) })
     }, [])
 
+
     return (
         <div>
+            <form>
+                <input type='text' />
+            </form>
             <ul>
                 {pokemon.map((poke, index) => {
                     return (<li>{poke.name}</li>)
